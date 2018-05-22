@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Books</title>
+   <title>Pragprog Books Online Store</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <%= Time.now %>
   <body class='<%= controller.controller_name %>'>
-    <%= yield %>
+  <%= image_tag 'https://image.freepik.com/free-vector/abstract-logo-in-flame-shape_1043-44.jpg',:size=>"200x200", alt: 'The Pragmatic Bookshelf' %>
+  <div id="side">
+<ul>
+<li><a href="http://www....">Home</a></li>
+<li><a href="http://www..../faq">Questions</a></li>
+<li><a href="http://www..../news">News</a></li>
+<li><a href="http://www..../contact">Contact</a></li>
+</ul>
+</div>
+  <div id="all">
+    <div id="banner" >
+    <div id="left">
+
+</div>
+<span class="title"><%= @page_title %></span>
+
+</div>
+<div id="columns" >
+  
+<div>
+<div id="main">
+<%= yield %>
+
+</div>
+</div>
+
   </body>
 </html>
 
