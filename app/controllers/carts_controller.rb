@@ -1,6 +1,10 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+  def line_item_params
+    
+    params.require(:line_item).permit(:product_id)
+    end
   # GET /carts
   # GET /carts.json
   def index
@@ -20,6 +24,7 @@ class CartsController < ApplicationController
   # GET /carts/1/edit
   def edit
   end
+ 
 
   # POST /carts
   # POST /carts.json
@@ -54,9 +59,10 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart.destroy
+    @cart.destroy if @cart.id == session[:cart_id]
+    session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to store_index_url,notice: 'Your cart is currently empty' }
       format.json { head :no_content }
     end
   end
