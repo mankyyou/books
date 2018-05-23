@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<p id="notice"><%= notice %></p>
+<h2>Your Pragmatic Cart</h2>
+<table class="w3-table-all">
+
+<% @cart.line_items.each do |item| %>
+<tr>
+<th><%= item.product.id %></li>
+</tr>
+<tr>
+<th><%= item.product.title %></li>
+</tr>
+<br>
+<tr>
+<th><%= item.product.price %></li>
+<br>
+<hr>
+</tr>
+<% end %>
+
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>

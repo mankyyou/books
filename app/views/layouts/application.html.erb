@@ -8,15 +8,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <%= Time.now %>
+  
   <body class='<%= controller.controller_name %>'>
   <%= image_tag 'https://image.freepik.com/free-vector/abstract-logo-in-flame-shape_1043-44.jpg',:size=>"200x200", alt: 'The Pragmatic Bookshelf' %>
   <div id="side">
 <ul>
-<li><a href="http://www....">Home</a></li>
-<li><a href="http://www..../faq">Questions</a></li>
-<li><a href="http://www..../news">News</a></li>
+<li><a href="/store/index">Home</a></li>
+<li><a href="/products">Add</a></li>
+<li><a href="/store/index">Store</a></li>
 <li><a href="http://www..../contact">Contact</a></li>
+<li class="test"><a><%= Time.now %></a></li>
 </ul>
 </div>
   <div id="all">
@@ -35,7 +36,11 @@
 
 </div>
 </div>
-
+<style>
+li.test{
+  padding-left:74% ;
+}
+</style>
   </body>
 </html>
 
