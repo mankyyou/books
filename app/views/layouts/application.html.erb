@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <title>Pragprog Books Online Store</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -8,17 +11,30 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
   <body class='<%= controller.controller_name %>'>
  <a href="/store/index"> <%= image_tag 'https://image.freepik.com/free-vector/abstract-logo-in-flame-shape_1043-44.jpg',:size=>"200x200", alt: 'The Pragmatic Bookshelf' %></a>
   <div id="side">
-<ul>
+<ul >
 <li><a href="/store/index">Home</a></li>
 <li><a href="/products">Add</a></li>
 <li><a href="/carts">Carts</a></li>
-<li><a href="http://www..../contact"></a></li>
 <li class="test"><a><%= Time.now %></a></li>
 </ul>
+
+<h2>Your Cast:</h2>
+
+
+<div class="dropdown">
+  <img src="https://visualpharm.com/assets/482/Shopping Cart-595b40b65ba036ed117d241c.svg" alt="Trolltunga Norway" width="100" height="50">
+  <div class="dropdown-content">
+    <div id="cart" >
+    <% if @cart %>
+  <%= render @cart %>
+  <% end %>
+  <p>Tips:Your cart just show when you are in  Home</p>
+  </div>
+</div>
+
 </div>
   <div id="all">
     <div id="banner" >
@@ -35,10 +51,34 @@
 <%= yield %>
 
 </div>
-</div>
+
+
+    
+
+
 <style>
-li.test{
-  padding-left:74% ;
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.desc {
+    padding: 15px;
+    text-align: center;
 }
 </style>
   </body>

@@ -1,32 +1,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <p id="notice"><%= notice %></p>
 <h2>Your Pragmatic Cart</h2>
-<%= button_to 'Empty cart', @cart, method: :delete,data: { confirm: 'Are you sure?' } %>
-<table class="w3-table-all">
- <thead>
-      <tr class="w3-blue">
-        <th>Name product</th>
-        <th>Price</th>
-        <th>Quantity</th>
-       
-        
-      </tr>
-    </thead>
-<% @cart.line_items.each do |item| %>
-<tr>
-<td class="w3-hover-blue"><%= item.product.title %></td>
-<td class="w3-hover-blue"><%= item.product.price %></td>
-<td class="w3-hover-blue"><%= item.quantity %> &times; <%= item.product.title %></td>
+<%= render @cart %>
 
-
-
-</tr>
-<% end %>
-<tr class="w3-hover-red">
-<td>Total</td>
-<td ></td>
-<td ><%= number_to_currency(@cart.total_price) %></td>
-</tr>
 
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
