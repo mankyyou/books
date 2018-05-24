@@ -27,12 +27,13 @@
 <div class="dropdown">
   <img src="https://visualpharm.com/assets/482/Shopping Cart-595b40b65ba036ed117d241c.svg" alt="Trolltunga Norway" width="100" height="50">
   <div class="dropdown-content">
-    <div id="cart" >
-    <% if @cart %>
-  <%= render @cart %>
-  <% end %>
-  <p>Tips:Your cart just show when you are in  Home</p>
-  </div>
+    <div id="cart"
+      <% if @cart %>
+      <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+        <%= render @cart %>
+      <% end %>
+    <% end %>
+        </div>
 </div>
 
 </div>
