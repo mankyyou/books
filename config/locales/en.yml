@@ -31,3 +31,21 @@
 
 en:
   hello: "Hello world"
+  page:
+    index:
+      title: "Example Webshop"
+      welcome: "Welcome to this webshop."
+      user:
+      home: "Home"
+      cart: "Cart"
+      order: "Order"
+      guest: "Guest"
+      login: "Login"
+      logout: "Log out"
+  admin:
+      order: "Order"
+      product: "Product"
+      user: "Home User"
+      admin: "Home Admin"
+      user1: "Users"
+      hello: "Hello"

@@ -1,0 +1,7 @@
+<% if session[:user_id] %>
+<%  @helloid=User.find(session[:user_id]) %>
+<h1>Welcome <%= @helloid.name %> !</h1> 
+<% end %>
+
+It's <%= Time.now %>
+We have <%= pluralize(@total_orders, "order") %>.

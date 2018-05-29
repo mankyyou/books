@@ -1,0 +1,23 @@
+vn:
+  hello: "xin chào"
+  page:
+    index:
+      titles: "Trang chủ"
+      #title: "hướng dẫn tạo web "
+      welcome: "chào mừng đến trang web"
+  user:
+      home: "Trang chủ"
+      cart: "Giỏ hàng"
+      order: "Đơn hàng"
+      guest: "Khách"
+      login: "Đăng nhập"
+      logout: "Đăng xuất"
+  admin:
+      order: "Đơn hàng"
+      product: "Sản phẩm"
+      user: "Người dùng"
+      admin: "Quản trị viên"
+      user1: "Quản lý người dùng"
+      hello: "Xin chào"
+
+    

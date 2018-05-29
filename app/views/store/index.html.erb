@@ -1,5 +1,7 @@
+<script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</script>
 <p id="notice"><%= notice %></p>
 <h1>Your Pragmatic Catalog</h1>
 <table class="w3-table-all w3-hoverable">
@@ -11,7 +13,7 @@
 <tr><td >
 
 <%= button_to 'Add to Cart', line_items_path(product_id: product),
-remote: true %>
+remote: true,:class =>"btnadd" %>
 
 <div class="entry">
 

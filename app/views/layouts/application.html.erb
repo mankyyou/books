@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</script>
    <title>Pragprog Books Online Store</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,17 +18,52 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <body class='<%= controller.controller_name %>'>
- <a href="/store/index"> <%= image_tag 'https://image.freepik.com/free-vector/abstract-logo-in-flame-shape_1043-44.jpg',:size=>"200x200", alt: 'The Pragmatic Bookshelf' %></a>
+ <%= image_tag 'https://itviec.com/system/production/employers/logos/341/social_square.png?1490254675',:size=>"200x200", alt: 'The Pragmatic Bookshelf' %>
   <div id="side">
-<ul >
-<li><a href="/store/index">Home</a></li>
-<li><a href="/products">Add</a></li>
-<li><a href="/carts">Carts</a></li>
-<li><a href="/orders">Order</a></li>
+  <a href="/login" class="btnlogin" ><span><%= I18n.t "user.login" %></span></a>
+  <br>
+  <br>
+<ul class="disable1" >
+<li class="disable"><a ><%= I18n.t "user.guest" %></a></li>
+<li><a href="/store/index"><%= I18n.t "user.home" %></a></li>
+<li><a href="/carts"><%= I18n.t "user.cart" %></a></li>
+<li><a href="/orders"><%= I18n.t "user.order" %></a></li>
 <li class="test"><a><%= Time.now %></a></li>
 </ul>
 
+<% if session[:user_id] %>
+<%  @helloid=User.find(session[:user_id]) %>
+
+<%= button_to  t('user.logout'), logout_path, method: :delete,:class => "btn btn-danger" %>
+<ul>
+<li><a class="disable3"><%= I18n.t "admin.hello" %> <%= @helloid.name %>!</a></li>
+<li><a href="/admin"><%= I18n.t "admin.admin" %></a></li>
+<li><a href="/store/index"><%= I18n.t "admin.user" %></a></li>
+<li><%= link_to t('admin.order'), orders_path%></li>
+<li><%= link_to t('admin.product'), products_path %></li>
+<li><%= link_to t('admin.user1'),users_path%></li>
+
+
+</ul>
+<style>
+ul.disable1 {
+  display:none;
+}
+a.btnlogin {
+  display:none;
+}
+a.disable3{
+  background-color:#673ab7;
+}
+
+</style>
+
+<% end %>
+
+
+<div class="left">
 <h2>Your Cast:</h2>
 
 
@@ -36,6 +78,8 @@
     <% end %>
         </div>
 </div>
+</div>
+
 
 </div>
   <div id="all">
@@ -47,19 +91,19 @@
 
 </div>
 <div id="columns" >
-  
+    
 <div>
 <div id="main">
 <%= yield %>
 
 </div>
 
-
-    
-
+    </div>
 
 <style>
-
+h4 {
+    color: #ececec;
+}
 .dropdown {
     position: relative;
     display: inline-block;
@@ -82,7 +126,14 @@
     padding: 15px;
     text-align: center;
 }
+li.disable {
+    background-color: #673ab7;
+}
+#thay doi cho nut logout
+
+
 </style>
   </body>
 </html>
 
+ 
